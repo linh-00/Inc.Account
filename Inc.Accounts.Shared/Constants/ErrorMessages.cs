@@ -8,10 +8,10 @@ namespace Inc.Accounts.Shared.Constants
 {
     public class ErrorMessages
     {
-        public const string ValidationError = "01.01";
+        public const string ValidationError = "Erro de validação";
         public const string AuthenticationError = "Usuário ou senha inválidos";
-        public const string NotFoundError = "10.01";
-        public const string RepositoryError = "20.01";
+        public const string NotFoundError = "Recurso não encontrado";
+        public const string RepositoryError = "Erro no repositório de dados";
         public const string UserNotFound = "Usuário não encontrado.";
     }
 }

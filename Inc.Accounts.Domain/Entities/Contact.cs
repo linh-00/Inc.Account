@@ -13,11 +13,11 @@ namespace Inc.Accounts.Domain.Entities
         public string Value { get; private set; }
         public bool Isprimary { get; private set; }
         public DateTime CreatedAt { get; private set; }
-        public DateTime CreatedBy { get; private set; }
-        public DateTime UpdatedAt { get; private set; }
-        public string UpdatedBy { get; private set; }
+        public string CreatedBy { get; private set; }
+        public DateTime? UpdatedAt { get; private set; }
+        public string? UpdatedBy { get; private set; }
 
-        public Contact(Guid id, Guid accountId, string type, string value, bool isprimary, DateTime createdAt, DateTime createdBy, DateTime updatedAt, string updatedBy): base(id)
+        public Contact(Guid id, Guid accountId, string type, string value, bool isprimary, DateTime createdAt, string createdBy, DateTime? updatedAt, string? updatedBy): base(id)
         {
             AccountId = accountId;
             Type = type;
