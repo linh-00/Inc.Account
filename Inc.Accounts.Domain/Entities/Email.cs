@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inc.Accounts.Domain.Entities
 {
-    public class Emails : BaseEntities
+    public class Email : BaseEntities
     {
         public Guid AccountId { get; private set; }
         public string AddressMail { get; private set; }
@@ -17,7 +17,7 @@ namespace Inc.Accounts.Domain.Entities
         public DateTime UpdatedAt { get; private set; }
         public string UpdatedBy { get; private set; }
 
-        public Emails(Guid id, Guid accountId, string addressMail, bool isPrimary, bool isVerified, DateTime createdAt, DateTime createdBy, DateTime updatedAt, string updatedBy) : base(id)
+        public Email(Guid id, Guid accountId, string addressMail, bool isPrimary, bool isVerified, DateTime createdAt, DateTime createdBy, DateTime updatedAt, string updatedBy) : base(id)
         {
             AccountId = accountId;
             AddressMail = addressMail;

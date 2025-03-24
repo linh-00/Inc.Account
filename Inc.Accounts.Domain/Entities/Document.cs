@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Inc.Accounts.Domain.Entities
 {
-    public class Documents : BaseEntities
+    public class Document : BaseEntities
     {
 		public Guid AccountId { get; private set; }
 		public string Name { get; private set; }
@@ -19,7 +19,7 @@ namespace Inc.Accounts.Domain.Entities
         public DateTime UpdatedAt { get; private set; }
         public string UpdatedBy { get; private set; }
 
-        public Documents(Guid id, Guid accountId, string name, string number, string type, string fileUrl, DateTime createdAt, DateTime createdBy, DateTime updatedAt, string updatedBy): base (id)
+        public Document(Guid id, Guid accountId, string name, string number, string type, string fileUrl, DateTime createdAt, DateTime createdBy, DateTime updatedAt, string updatedBy): base (id)
         {
             AccountId = accountId;
             Name = name;

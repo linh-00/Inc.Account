@@ -20,11 +20,11 @@ namespace Inc.Accounts.Domain.Entities
         public string ZipCode { get; private set; }
         public bool IsPrimary { get; private set; }
         public DateTime CreatedAt { get; private set; }
-        public DateTime CreatedBy { get; private set; }
-        public DateTime UpdatedAt { get; private set; }
+        public string CreatedBy { get; private set; }
+        public DateTime? UpdatedAt { get; private set; }
         public string UpdatedBy { get; private set; }
 
-        public Address(Guid id,Guid accountId, string street, string number, string complement, string neighborhood, string city, string state, string country, string zipCode, bool isPrimary, DateTime createdAt, DateTime createdBy, DateTime updatedAt, string updatedBy) : base(id)
+        public Address(Guid id,Guid accountId, string street, string number, string complement, string neighborhood, string city, string state, string country, string zipCode, bool isPrimary, DateTime createdAt, string createdBy, DateTime? updatedAt, string updatedBy) : base(id)
         {
             AccountId = accountId;
             Street = street;
