@@ -15,11 +15,11 @@ namespace Inc.Accounts.Domain.Entities
 		public string Type { get; private set; }
 		public string FileUrl { get; private set; }
         public DateTime CreatedAt { get; private set; }
-        public DateTime CreatedBy { get; private set; }
-        public DateTime UpdatedAt { get; private set; }
-        public string UpdatedBy { get; private set; }
+        public string CreatedBy { get; private set; }
+        public DateTime? UpdatedAt { get; private set; }
+        public string? UpdatedBy { get; private set; }
 
-        public Document(Guid id, Guid accountId, string name, string number, string type, string fileUrl, DateTime createdAt, DateTime createdBy, DateTime updatedAt, string updatedBy): base (id)
+        public Document(Guid id, Guid accountId, string name, string number, string type, string fileUrl, DateTime createdAt, string createdBy, DateTime? updatedAt, string? updatedBy): base (id)
         {
             AccountId = accountId;
             Name = name;

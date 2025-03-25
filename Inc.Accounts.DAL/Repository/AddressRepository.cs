@@ -57,7 +57,7 @@ namespace Inc.Accounts.DAL.Repository
                 return new AddressDomain(address.Id, address.AccountId, address.Street, address.Number, address.Complement, address.Neighborhood, address.City, address.State, address.Country, address.ZipCode, address.IsPrimary, address.CreatedAt, address.CreatedBy, address.UpdatedAt, address.UpdatedBy);
             }
 
-            throw new RepositoryException(ErrorMessages.UserNotFound);
+            throw new RepositoryException(ErrorMessages.AddressNotFound);
         }
 
         public async Task<IEnumerable<AddressDomain>> GetAllByAcountId(Guid Id)
@@ -88,7 +88,7 @@ namespace Inc.Accounts.DAL.Repository
                 return request;
             }
 
-            throw new RepositoryException(ErrorMessages.UserNotFound);
+            throw new RepositoryException(ErrorMessages.AddressNotFound);
         }   
         
         public async Task<bool> Delete(Guid Id)
@@ -102,7 +102,7 @@ namespace Inc.Accounts.DAL.Repository
                 return true;
             }
 
-            throw new RepositoryException(ErrorMessages.UserNotFound);
+            throw new RepositoryException(ErrorMessages.AddressNotFound);
         }
         
     }

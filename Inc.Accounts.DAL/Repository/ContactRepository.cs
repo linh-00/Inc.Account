@@ -49,7 +49,7 @@ namespace Inc.Accounts.DAL.Repository
                 return new Domain.Entities.Contact(contact.Id, contact.AccountId, contact.Type, contact.Value, contact.IsPrimary, contact.CreatedAt, contact.CreatedBy, contact.UpdatedAt, contact.UpdatedBy);
             }
 
-            throw new RepositoryException(ErrorMessages.UserNotFound);
+            throw new RepositoryException(ErrorMessages.ContactNotFound);
         }
 
         public async Task<Domain.Entities.Contact> Update(Domain.Entities.Contact request)
