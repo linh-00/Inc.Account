@@ -10,14 +10,14 @@ namespace Inc.Accounts.Domain.Entities
     {
         public Guid AccountId { get; private set; }
         public string AddressMail { get; private set; }
-        public bool IsPrimary { get; private set; }
+        public bool? IsPrimary { get; private set; }
         public bool IsVerified { get; private set; }
         public DateTime CreatedAt { get; private set; }
-        public DateTime CreatedBy { get; private set; }
-        public DateTime UpdatedAt { get; private set; }
-        public string UpdatedBy { get; private set; }
+        public string CreatedBy { get; private set; }
+        public DateTime? UpdatedAt { get; private set; }
+        public string? UpdatedBy { get; private set; }
 
-        public Email(Guid id, Guid accountId, string addressMail, bool isPrimary, bool isVerified, DateTime createdAt, DateTime createdBy, DateTime updatedAt, string updatedBy) : base(id)
+        public Email(Guid id, Guid accountId, string addressMail, bool? isPrimary, bool isVerified, DateTime createdAt, string createdBy, DateTime? updatedAt, string? updatedBy) : base(id)
         {
             AccountId = accountId;
             AddressMail = addressMail;

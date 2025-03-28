@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _Contact = Inc.Accounts.DAL.Models.Contact;
+using Contact = Inc.Accounts.Domain.Entities.Contact;
 
 
 namespace Inc.Accounts.DAL.Repository
@@ -50,6 +51,11 @@ namespace Inc.Accounts.DAL.Repository
             }
 
             throw new RepositoryException(ErrorMessages.ContactNotFound);
+        }
+        public async Task<IEnumerable<Domain.Entities.Contact>> GetAllByAcountId(Guid Id)
+        {
+            var lstAddress = await _dbAccount.Contacts.Where(x => x.Id == Id).ToListAsync();
+            return lstAddress.Select(res => new Contact(res.Id, res.AccountId, res.Type, res.Value, res.IsPrimary, res.CreatedAt, res.CreatedBy, res.UpdatedAt, res.UpdatedBy));
         }
 
         public async Task<Domain.Entities.Contact> Update(Domain.Entities.Contact request)

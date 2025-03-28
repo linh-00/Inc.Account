@@ -10,6 +10,7 @@ namespace Inc.Accounts.Domain.Interfaces
     {
         Task<Domain.Entities.Contact> Create(Domain.Entities.Contact request); 
         Task<Domain.Entities.Contact> GetById(Guid id);
+        Task<IEnumerable<Domain.Entities.Contact>> GetAllByAcountId(Guid Id);
         Task<Domain.Entities.Contact> Update(Domain.Entities.Contact request); 
         Task<bool> Delete(Guid Id);
     }

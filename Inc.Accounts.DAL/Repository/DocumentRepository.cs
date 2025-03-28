@@ -1,7 +1,7 @@
 ﻿using Azure.Core;
 using Inc.Accounts.DAL.Context;
 using Inc.Accounts.DAL.Models;
-using Inc.Accounts.Domain.Entities;
+using Inc.Accounts.Domain.Interfaces;
 using Inc.Accounts.Shared.Constants;
 using Inc.Accounts.Shared.Exceptions.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +15,7 @@ using Document = Inc.Accounts.Domain.Entities.Document;
 
 namespace Inc.Accounts.DAL.Repository
 {
-    public class DocumentRepository
+    public class DocumentRepository : IDocumentRepository
     {
         private readonly dbIncAccountsContext _dbAccount;
 
@@ -41,7 +41,6 @@ namespace Inc.Accounts.DAL.Repository
             await _dbAccount.SaveChangesAsync();
             return request;
         }
-
         public async Task<Domain.Entities.Document> GetById (Guid Id)
         {
             var document = await _dbAccount.Documents.Where(x => x.Id == Id).FirstOrDefaultAsync();
@@ -51,6 +50,12 @@ namespace Inc.Accounts.DAL.Repository
             }
 
             throw new RepositoryException(ErrorMessages.UserNotFound);
+        }
+
+        public async Task<IEnumerable<Document>> GetAllByAcountId(Guid Id)
+        {
+            var lstAddress = await _dbAccount.Documents.Where(x => x.Id == Id).ToListAsync();
+            return lstAddress.Select(res => new Document(res.Id, res.AccountId, res.Name, res.Number, res.Type, res.FileUrl, res.CreatedAt, res.CreatedBy, res.UpdatedAt, res.UpdatedBy));
         }
 
         public async Task<Document> Update(Document request)
