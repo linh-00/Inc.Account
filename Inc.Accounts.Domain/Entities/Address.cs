@@ -41,5 +41,35 @@ namespace Inc.Accounts.Domain.Entities
             UpdatedAt = updatedAt;
             UpdatedBy = updatedBy;
         }
+
+        public Address(string street, string number, string complement, string neighborhood, string city, string state, string country, string zipCode, bool isPrimary, string createdBy)
+        {
+            Street = street;
+            Number = number;
+            Complement = complement;
+            Neighborhood = neighborhood;
+            City = city;
+            State = state;
+            Country = country;
+            ZipCode = zipCode;
+            IsPrimary = isPrimary;
+            CreatedAt = DateTime.Now;
+            CreatedBy = createdBy;
+        }
+        public void Update(string street, string number, string complement, string neighborhood, string city, string state, string country, string zipCode, bool isPrimary, string updatedBy)
+        {
+            Street = street;
+            Number = number;
+            Complement = complement;
+            Neighborhood = neighborhood;
+            City = city;
+            State = state;
+            Country = country;
+            ZipCode = zipCode;
+            IsPrimary = isPrimary;
+            UpdatedAt = DateTime.Now;
+            UpdatedBy = updatedBy;
+        }
+
     }
 }

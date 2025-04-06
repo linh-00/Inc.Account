@@ -28,6 +28,16 @@ namespace Inc.Accounts.Domain.Entities
             UpdatedAt = updatedAt;
             UpdatedBy = updatedBy;
         }
+
+        public Contact (string type, string value, bool isprimary, string createdBy) 
+        {
+            
+            Type = type;
+            Value = value;
+            Isprimary = isprimary;
+            CreatedAt = DateTime.Now;
+            CreatedBy = createdBy;
+        }
     }
          
 }

@@ -28,5 +28,15 @@ namespace Inc.Accounts.Domain.Entities
             UpdatedAt = updatedAt;
             UpdatedBy = updatedBy;
         }
+
+        public void Create(string addressMail, bool? isPrimary, bool isVerified, string createdBy, DateTime? updatedAt)
+        {
+
+            AddressMail = addressMail;
+            IsPrimary = isPrimary;
+            IsVerified = isVerified;
+            CreatedAt = DateTime.Now;
+            CreatedBy = createdBy;
+        }
     }
 }

@@ -31,6 +31,16 @@ namespace Inc.Accounts.Domain.Entities
             UpdatedAt = updatedAt;
             UpdatedBy = updatedBy;
         }
+        public Document(string name, string number, string type, string fileUrl,  string createdBy)
+        {
+            Name = name;
+            Number = number;
+            Type = type;
+            FileUrl = fileUrl;
+            CreatedAt = DateTime.Now;
+            CreatedBy = createdBy;
+        }
+
     } 
 
 }

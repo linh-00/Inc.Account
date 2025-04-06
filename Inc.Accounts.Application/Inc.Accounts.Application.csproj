@@ -7,10 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\Response\" />
-    <Folder Include="DTO\Request\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="UseCases\" />
+    <Folder Include="Interfaces\Account\" />
+    <Folder Include="Interfaces\Email\" />
+    <Folder Include="UseCases\Account\" />
+    <Folder Include="UseCases\Email\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Inc.Accounts.Domain\Inc.Accounts.Domain.csproj" />
+    <ProjectReference Include="..\Inc.Accounts.Shared\Inc.Accounts.Shared.csproj" />
   </ItemGroup>
 
 </Project>
