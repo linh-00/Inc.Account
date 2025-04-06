@@ -35,7 +35,7 @@ Este projeto segue o padrão de **Arquitetura Onion (Cebola)** para garantir mel
 ## 🚀 Como Usar?
 ### 1️⃣ Clonar o Repositório
 ```bash
-git clone https://github.com/linh-00/Account.git
+https://github.com/linh-00/Inc.Account.git
 ```
 
 ### 2️⃣ Configurar o Banco de Dados
