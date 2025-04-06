@@ -8,9 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\Account\" />
-    <Folder Include="Interfaces\Email\" />
     <Folder Include="UseCases\Account\" />
-    <Folder Include="UseCases\Email\" />
   </ItemGroup>
 
   <ItemGroup>

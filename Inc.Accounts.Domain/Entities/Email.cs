@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Inc.Accounts.Domain.Entities
+﻿namespace Inc.Accounts.Domain.Entities
 {
     public class Email : BaseEntities
     {
@@ -29,7 +23,7 @@ namespace Inc.Accounts.Domain.Entities
             UpdatedBy = updatedBy;
         }
 
-        public void Create(string addressMail, bool? isPrimary, bool isVerified, string createdBy, DateTime? updatedAt)
+        public Email(string addressMail, bool? isPrimary, bool isVerified, string createdBy, DateTime? updatedAt)
         {
 
             AddressMail = addressMail;
