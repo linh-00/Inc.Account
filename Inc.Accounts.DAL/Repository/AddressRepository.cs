@@ -65,6 +65,15 @@ namespace Inc.Accounts.DAL.Repository
             var lstAddress = await _dbAccount.Addresses.Where(x => x.Id == Id).ToListAsync();
             return lstAddress.Select(res => new AddressDomain(res.Id, res.AccountId, res.Street, res.Number, res.Complement, res.Neighborhood, res.City, res.State, res.Country, res.ZipCode, res.IsPrimary, res.CreatedAt, res.CreatedBy, res.UpdatedAt, res.UpdatedBy));
         }
+        public async Task<AddressDomain> GetInfo(Guid id)
+        {
+            var address = await _dbAccount.Addresses.Where(x => x.Id == id).FirstOrDefaultAsync();
+
+            if (address is not null)
+                return new AddressDomain(address.Id, address.AccountId, address.Street, address.Number, address.Complement, address.Neighborhood, address.City, address.State, address.Country, address.ZipCode, address.IsPrimary, address.CreatedAt, address.CreatedBy, address.UpdatedAt, address.UpdatedBy);
+
+            throw new RepositoryException(ErrorMessages.AddressNotFound);
+        }
         public async Task<AddressDomain> Update(AddressDomain request)
         {
             var address = await _dbAccount.Addresses.Where(x => x.Id == request.Id).FirstOrDefaultAsync();

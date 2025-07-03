@@ -12,6 +12,7 @@ namespace Inc.Accounts.Domain.Interfaces
         Task<AddressDomain> Create(AddressDomain request);
         Task<AddressDomain> GetById(Guid Id);
         Task<IEnumerable<AddressDomain>> GetAllByAcountId(Guid Id);
+        Task<AddressDomain> GetInfo(Guid id);
         Task<AddressDomain> Update(AddressDomain request);
         Task<bool> Delete(Guid Id);
     }

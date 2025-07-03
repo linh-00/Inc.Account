@@ -28,16 +28,17 @@ namespace Inc.Accounts.Application.UseCases.Email
 
             try
             {
-                var domain = new EmailDomain(request.AddressMail, request.IsPrimary, request.IsVerified, "");
-                var entity = await _EmailRepository.Create(domain);
-                var mapper = _Mapper.Map<EmailResponse>(entity);
+                //var domain = new EmailDomain(request.AddressMail, request.IsPrimary, request.IsVerified, "");
+                //var entity = await _EmailRepository.Create(domain);
+                //var mapper = _Mapper.Map<EmailResponse>(entity);
 
-                return result
+                //return result.SetSuccess(mapper);
+                throw new Exception();
 
             }
             catch (Exception ex)
             {
-
+                throw new Exception();
             }
         }
     }

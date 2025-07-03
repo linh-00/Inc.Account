@@ -14,7 +14,7 @@ namespace Inc.Accounts.Application.DTO.Response
         public string Type { get; init; }
         public string FileUrl { get; init; }
         public DateTime CreatedAt { get;  init; }
-        public string CreatedBy { get; init; }+
+        public string CreatedBy { get; init; }
         public DateTime? UpdatedAt { get; init; }
         public string? UpdatedBy { get; init; }
     }

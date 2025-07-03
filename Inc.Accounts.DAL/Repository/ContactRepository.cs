@@ -5,11 +5,6 @@ using Inc.Accounts.Domain.Entities;
 using Inc.Accounts.Shared.Constants;
 using Inc.Accounts.Shared.Exceptions.Exceptions;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using _Contact = Inc.Accounts.DAL.Models.Contact;
 using Contact = Inc.Accounts.Domain.Entities.Contact;
 
@@ -47,18 +42,27 @@ namespace Inc.Accounts.DAL.Repository
 
             if(contact is not null)
             {
-                return new Domain.Entities.Contact(contact.Id, contact.AccountId, contact.Type, contact.Value, contact.IsPrimary, contact.CreatedAt, contact.CreatedBy, contact.UpdatedAt, contact.UpdatedBy);
+                return new Contact(contact.Id, contact.AccountId, contact.Type, contact.Value, contact.IsPrimary, contact.CreatedAt, contact.CreatedBy, contact.UpdatedAt, contact.UpdatedBy);
             }
 
             throw new RepositoryException(ErrorMessages.ContactNotFound);
         }
-        public async Task<IEnumerable<Domain.Entities.Contact>> GetAllByAcountId(Guid Id)
+        public async Task<IEnumerable<Contact>> GetAllByAcountId(Guid Id)
         {
             var lstAddress = await _dbAccount.Contacts.Where(x => x.Id == Id).ToListAsync();
             return lstAddress.Select(res => new Contact(res.Id, res.AccountId, res.Type, res.Value, res.IsPrimary, res.CreatedAt, res.CreatedBy, res.UpdatedAt, res.UpdatedBy));
         }
+        public async Task<Contact> GetInfo(Guid id)
+        {
+            var contact = await _dbAccount.Contacts.Where(x => x.Id == id).FirstOrDefaultAsync();
 
-        public async Task<Domain.Entities.Contact> Update(Domain.Entities.Contact request)
+            if (contact is not null)
+                return new Contact(contact.Id, contact.AccountId, contact.Type, contact.Value, contact.IsPrimary, contact.CreatedAt, contact.CreatedBy, contact.UpdatedAt, contact.UpdatedBy);
+
+            throw new RepositoryException(ErrorMessages.AddressNotFound);
+        }
+
+        public async Task<Domain.Entities.Contact> Update(Contact request)
         {
             var contact = await _dbAccount.Contacts.Where(x => x.Id == request.Id).FirstOrDefaultAsync();
 

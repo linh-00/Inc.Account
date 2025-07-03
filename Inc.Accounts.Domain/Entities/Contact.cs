@@ -38,6 +38,15 @@ namespace Inc.Accounts.Domain.Entities
             CreatedAt = DateTime.Now;
             CreatedBy = createdBy;
         }
+
+        public void Update(string type, string value, bool isprimary, string updatedBy)
+        {
+            Type = type;
+            Value = value;
+            Isprimary = isprimary;
+            CreatedAt = DateTime.Now;
+            UpdatedBy = updatedBy;
+        }
     }
          
 }
